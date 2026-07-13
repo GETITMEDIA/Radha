@@ -1,0 +1,708 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radha Decors</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome (used for the house glyph and the hamburger icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+  /* ============================================
+     Design tokens â€” referenced throughout the
+     navbar CSS below (--gold, --dark, etc.)
+     ============================================ */
+  :root{
+    --gold: #c9a227;
+    --gold-light: #f0d488;
+    --dark: #1a1a1a;
+    --text-dark: #2b2620;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f6f1e6;
+    color: var(--text-dark);
+  }
+
+  /* ============================================
+     Navbar (fixed â€” floats over canvas)
+     ============================================ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    display: flex;
+    align-items: stretch;
+
+    background: #fffdf8;
+    border-radius: 0 0 60px 60px;
+    box-shadow:
+      inset 0 0 0 1px rgba(201, 162, 39, 0.35),
+      0 18px 35px -12px rgba(201, 162, 39, 0.55);
+    overflow: visible;
+    animation: border-glow 4s ease-in-out infinite;
+    transition: transform 0.4s ease;
+  }
+
+  .navbar.navbar--hidden {
+    transform: translateY(-100%);
+  }
+
+
+  .logo-panel {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px clamp(24px, 5vw, 50px);
+    border-radius: 0 140px 140px 0;
+    border: 2px solid var(--gold);
+    border-left: none;
+    box-shadow: 6px 0 20px -8px rgba(201, 162, 39, 0.5);
+    flex-shrink: 0;
+  }
+
+  /* Pendant lamp */
+  .pendant-lamp {
+    position: absolute;
+    top: 2px;
+    left: 38px;
+    width: 2px;
+    height: 26px;
+    background: linear-gradient(to bottom, var(--gold), rgba(201, 162, 39, 0.2));
+    z-index: 2;
+  }
+
+  .pendant-lamp::before {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 14px;
+    background: var(--dark);
+    border: 2px solid var(--gold);
+    border-radius: 4px 4px 50% 50%;
+  }
+
+  .pendant-lamp::after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    animation: lamp-glow 3s ease-in-out infinite;
+  }
+
+  .logo-mark {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-house {
+    font-size: 38px;
+    background: linear-gradient(160deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .logo-letter {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: #fff;
+    margin-top: 7px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .logo-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 4px;
+    background: linear-gradient(160deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .logo-sub {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #f0f0f0;
+    margin-top: 4px;
+  }
+
+  .nav-links {
+    --icon-size: clamp(72px, 9vw, 130px);
+    --item-gap: clamp(10px, 2.5vw, 40px);
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: var(--item-gap);
+    flex-wrap: wrap;
+    padding: 24px clamp(16px, 3vw, 50px) 18px;
+  }
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+    animation: nav-fade-up 0.6s ease-out both;
+  }
+
+  .nav-item:nth-child(1) { animation-delay: 0.05s; }
+  .nav-item:nth-child(2) { animation-delay: 0.13s; }
+  .nav-item:nth-child(3) { animation-delay: 0.21s; }
+  .nav-item:nth-child(4) { animation-delay: 0.29s; }
+  .nav-item:nth-child(5) { animation-delay: 0.37s; }
+
+  .nav-item:hover {
+    transform: translateY(-4px);
+  }
+
+  .nav-item:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--icon-size) / 2 - 18px);
+    height: 36px;
+    right: calc(var(--item-gap) / -2);
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(201, 162, 39, 0.5),
+      transparent
+    );
+  }
+
+  .nav-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--icon-size) / 2 - 4px);
+    right: calc(var(--item-gap) / -2 - 4px);
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: glow-pulse 2.4s ease-in-out infinite;
+  }
+
+  .nav-icon {
+    position: relative;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 50%;
+    border: 1px solid rgba(201, 162, 39, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 16px rgba(201, 162, 39, 0.3);
+  }
+
+  .nav-icon::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: 10%;
+    width: 14px;
+    height: 14px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px rgba(201, 162, 39, 0.7);
+    animation: glow-pulse 2.4s ease-in-out infinite;
+    z-index: 2;
+  }
+
+  /* Halo glow ring â€” a soft arc of light behind each icon,
+     brighter on hover and on the active item */
+  .nav-icon::after {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+    opacity: 0.4;
+    box-shadow: 0 0 18px 4px rgba(201, 162, 39, 0.35);
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .nav-item:hover .nav-icon::after,
+  .nav-item.active .nav-icon::after {
+    opacity: 1;
+    box-shadow: 0 0 30px 8px rgba(201, 162, 39, 0.65);
+  }
+
+  .nav-icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease;
+  }
+
+  .nav-item:hover .nav-icon,
+  .nav-item.active .nav-icon {
+    border-color: var(--gold);
+    box-shadow:
+      0 0 0 8px rgba(201, 162, 39, 0.22),
+      0 0 36px 4px rgba(201, 162, 39, 0.75);
+  }
+
+  .nav-item:hover .nav-icon img,
+  .nav-item.active .nav-icon img {
+    transform: scale(1.05);
+  }
+
+  .nav-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+  }
+
+  .nav-label::after {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: rgba(201, 162, 39, 0.35);
+    margin: 8px auto 0;
+    border-radius: 2px;
+    transition: background 0.25s ease, width 0.25s ease;
+  }
+
+  .nav-item:hover .nav-label::after,
+  .nav-item.active .nav-label::after {
+    background: var(--gold);
+    width: 34px;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 0 20px;
+    align-self: center;
+  }
+
+  /* Decorative kolam medallions */
+  .kolam {
+    position: absolute;
+    bottom: -8px;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.8;
+    animation: kolam-spin 70s linear infinite;
+  }
+
+  .kolam-left  { left: 16px; }
+  .kolam-right { right: 16px; }
+
+  .kolam-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Navbar animations */
+  @keyframes border-glow {
+    0%, 100% {
+      box-shadow:
+        inset 0 0 0 1px rgba(201, 162, 39, 0.35),
+        0 18px 35px -12px rgba(201, 162, 39, 0.55);
+    }
+    50% {
+      box-shadow:
+        inset 0 0 0 1px rgba(201, 162, 39, 0.5),
+        0 18px 40px -10px rgba(201, 162, 39, 0.75);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 8px 2px rgba(201, 162, 39, 0.7);  opacity: 1; }
+    50%       { box-shadow: 0 0 20px 6px rgba(201, 162, 39, 1);   opacity: 0.65; }
+  }
+
+  @keyframes lamp-glow {
+    0%, 100% { box-shadow: 0 0 14px 6px rgba(230, 200, 80, 0.85); opacity: 1; }
+    50%       { box-shadow: 0 0 26px 12px rgba(230, 200, 80, 1);   opacity: 0.9; }
+  }
+
+  @keyframes nav-fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes kolam-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Navbar responsive */
+  @media (max-width: 900px) {
+    .navbar {
+      flex-wrap: wrap;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .logo-panel {
+      border-radius: 0 0 30px 0;
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: block;
+      margin-left: auto;
+    }
+
+    .nav-links {
+      --icon-size: 64px;
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 24px;
+      padding: 24px 0;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-item {
+      flex-direction: row;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .nav-item:not(:last-child)::before,
+    .nav-item:not(:last-child)::after {
+      display: none;
+    }
+
+    .nav-label::after {
+      display: none;
+    }
+
+    .kolam,
+    .pendant-lamp {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-panel {
+      padding: 12px 20px;
+      gap: 10px;
+    }
+
+    .logo-title {
+      font-size: 18px;
+    }
+
+    .logo-sub {
+      font-size: 9px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .nav-item,
+    .nav-icon::before,
+    .nav-item:not(:last-child)::after,
+    .pendant-lamp::after,
+    .kolam {
+      animation: none !important;
+    }
+  }
+
+  /* ============================================
+     Demo page content â€” replace with your real
+     sections. They just need to keep these ids
+     (#home, #about, #services, #products, #contact)
+     if you want the scrollspy in navbar.js to work.
+     ============================================ */
+  main{ max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .demo-section{ min-height: 70vh; padding: 90px 0; border-bottom: 1px dashed rgba(201,162,39,.35); }
+  .demo-section:last-child{ border-bottom: none; }
+  .demo-section h2{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: 2px;
+    margin: 0 0 12px;
+  }
+  .demo-section p{ max-width: 640px; line-height: 1.7; color: #5b5347; }
+</style>
+</head>
+<body>
+
+  <header class="navbar" id="mainNavbar">
+    <div class="logo-panel">
+      <div class="pendant-lamp"></div>
+      <div class="logo-mark">
+        <i class="fa-solid fa-house logo-house"></i>
+        <span class="logo-letter">R</span>
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">RADHA</span>
+        <span class="logo-sub">â€” DECORS â€”</span>
+      </div>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-item active">
+        <span class="nav-icon"><img src="assets/radha imag/home.png" alt="Home"></span>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="#about" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/about.png" alt="About"></span>
+        <span class="nav-label">About</span>
+      </a>
+      <a href="#services" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/Service.png" alt="Services"></span>
+        <span class="nav-label">Services</span>
+      </a>
+      <a href="#products" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/products.png" alt="Products"></span>
+        <span class="nav-label">Products</span>
+      </a>
+      <a href="#contact" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/contact.png" alt="Contact"></span>
+        <span class="nav-label">Contact</span>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="kolam kolam-left">
+      <svg class="kolam-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <path id="kolam-petal-l" d="M60,60 C72,46 72,28 60,16 C48,28 48,46 60,60 Z"/>
+        </defs>
+        <g fill="none" stroke="var(--gold)" stroke-width="1.2" opacity="0.55">
+          <use href="#kolam-petal-l" transform="rotate(0 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(45 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(90 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(135 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(180 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(225 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(270 60 60)"/>
+          <use href="#kolam-petal-l" transform="rotate(315 60 60)"/>
+        </g>
+        <circle cx="60" cy="60" r="44" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="2 5" opacity="0.35"/>
+        <circle cx="60" cy="60" r="3.5" fill="var(--gold)"/>
+        <g fill="var(--gold)">
+          <circle cx="60" cy="16" r="2.2"/>
+          <circle cx="88.6" cy="31.4" r="2.2"/>
+          <circle cx="104" cy="60" r="2.2"/>
+          <circle cx="88.6" cy="88.6" r="2.2"/>
+          <circle cx="60" cy="104" r="2.2"/>
+          <circle cx="31.4" cy="88.6" r="2.2"/>
+          <circle cx="16" cy="60" r="2.2"/>
+          <circle cx="31.4" cy="31.4" r="2.2"/>
+        </g>
+      </svg>
+    </div>
+    <div class="kolam kolam-right">
+      <svg class="kolam-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <path id="kolam-petal-r" d="M60,60 C72,46 72,28 60,16 C48,28 48,46 60,60 Z"/>
+        </defs>
+        <g fill="none" stroke="var(--gold)" stroke-width="1.2" opacity="0.55">
+          <use href="#kolam-petal-r" transform="rotate(0 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(45 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(90 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(135 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(180 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(225 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(270 60 60)"/>
+          <use href="#kolam-petal-r" transform="rotate(315 60 60)"/>
+        </g>
+        <circle cx="60" cy="60" r="44" fill="none" stroke="var(--gold)" stroke-width="1" stroke-dasharray="2 5" opacity="0.35"/>
+        <circle cx="60" cy="60" r="3.5" fill="var(--gold)"/>
+        <g fill="var(--gold)">
+          <circle cx="60" cy="16" r="2.2"/>
+          <circle cx="88.6" cy="31.4" r="2.2"/>
+          <circle cx="104" cy="60" r="2.2"/>
+          <circle cx="88.6" cy="88.6" r="2.2"/>
+          <circle cx="60" cy="104" r="2.2"/>
+          <circle cx="31.4" cy="88.6" r="2.2"/>
+          <circle cx="16" cy="60" r="2.2"/>
+          <circle cx="31.4" cy="31.4" r="2.2"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <!-- ============================================
+       Demo page content so you can see the navbar
+       in context (sticky reveal/hide + scrollspy).
+       Swap this out for your real page sections.
+       ============================================ -->
+  <main>
+    <section id="home" class="demo-section">
+      <h2>Welcome to Radha Decors</h2>
+      <p>This is placeholder content so you can see the navbar's scroll behavior in action â€” scroll down and the navbar tucks away, scroll up and it reappears. Swap this section out for your real homepage content.</p>
+    </section>
+    <section id="about" class="demo-section">
+      <h2>About Us</h2>
+      <p>Tell your story here â€” who you are, your design philosophy, and what makes Radha Decors different.</p>
+    </section>
+    <section id="services" class="demo-section">
+      <h2>Our Services</h2>
+      <p>List your interior design, lighting, and decor services here.</p>
+    </section>
+    <section id="products" class="demo-section">
+      <h2>Products</h2>
+      <p>Showcase your marble, wood, and material catalogue here.</p>
+    </section>
+    <section id="contact" class="demo-section">
+      <h2>Get in Touch</h2>
+      <p>Add your contact form, phone number, and address here.</p>
+    </section>
+  </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const navbar     = document.getElementById('mainNavbar');
+  const navLinks   = document.getElementById('navLinks');
+  const menuToggle = document.getElementById('menuToggle');
+  const toggleIcon = menuToggle.querySelector('i');
+  const navItems   = navLinks.querySelectorAll('.nav-item');
+
+  /* ===========================================
+     1. Mobile hamburger menu open / close
+     =========================================== */
+  function openMenu() {
+    navLinks.classList.add('open');
+    toggleIcon.classList.remove('fa-bars');
+    toggleIcon.classList.add('fa-xmark');
+    menuToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    toggleIcon.classList.remove('fa-xmark');
+    toggleIcon.classList.add('fa-bars');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close the menu if someone taps/clicks outside the navbar while it's open
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open') && !navbar.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close the menu automatically on resize back up to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
+
+  /* ===========================================
+     2. Active link state on click
+     =========================================== */
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      navItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      // On mobile, pick a link then auto-close the dropdown
+      if (window.innerWidth <= 900) closeMenu();
+    });
+  });
+
+  /* ===========================================
+     3. Scrollspy â€” highlight the link for whichever
+        section is currently in view
+     =========================================== */
+  const sections = document.querySelectorAll('section[id]');
+
+  if (sections.length) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navItems.forEach(item => {
+            item.classList.toggle('active', item.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(section => spy.observe(section));
+  }
+
+  /* ===========================================
+     4. Hide navbar on scroll down, reveal on scroll up
+     =========================================== */
+  let lastScrollY = window.scrollY;
+  const scrollThreshold = 80; // px before the hide/show kicks in
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+      navbar.classList.add('navbar--hidden');   // scrolling down -> hide
+    } else {
+      navbar.classList.remove('navbar--hidden'); // scrolling up -> reveal
+    }
+
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
+});
+</script>
+</body>
+</html>
+

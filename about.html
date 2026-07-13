@@ -1,0 +1,459 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Radha Decors | Interior Design & Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="icon" type="image/png" href="assets/radha imag/Radha Decors logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="is-loading">
+
+  <!-- Loading overlay -->
+  <div class="loader" id="loader" aria-live="polite">
+    <div class="loader__inner">
+      <div class="loader__percentage" id="loaderPercentage">0%</div>
+      <div class="loader__bar">
+        <div class="loader__bar-fill" id="loaderBarFill"></div>
+      </div>
+      <div class="loader__label">Preparing Experience</div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="mainNavbar">
+    <div class="logo-panel">
+      <div class="logo-image">
+        <img src="assets/radha imag/Radha Decors logo.png" alt="Radha Decors Logo">
+      </div>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/home.png" alt="Home"></span>
+        <span class="nav-label">Home</span>
+      </a>
+      <a href="about.html" class="nav-item active">
+        <span class="nav-icon"><img src="assets/radha imag/about.png" alt="About"></span>
+        <span class="nav-label">About</span>
+      </a>
+      <div class="nav-item dropdown">
+        <a href="products.html" class="nav-link">
+          <span class="nav-icon"><img src="assets/radha imag/products.png" alt="Products"></span>
+          <span class="nav-label">Products</span>
+        </a>
+        <button type="button" class="dropdown-toggle" aria-label="Toggle products menu" aria-expanded="false">
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <div class="dropdown-inner">
+            <a href="services/gypsum-ceiling-partition.html"><span class="dd-num">01</span>Gypsum Ceiling &amp; Partition<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/gi-ceiling-channels.html"><span class="dd-num">02</span>GI Ceiling Channels<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/pvc-fluted-panel.html"><span class="dd-num">03</span>PVC Fluted Panel<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/pvc-two-groove-panel.html"><span class="dd-num">04</span>PVC Two Groove Panel<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/pvc-6inch-panel.html"><span class="dd-num">05</span>PVC 6 Inch Merged Panel<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/pvc-8inch-panel.html"><span class="dd-num">06</span>PVC 8 Inch Merged Panel<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/pvc-strong-wall-panel.html"><span class="dd-num">07</span>PVC Strong Wall Panel<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/pvc-laminated-louvers.html"><span class="dd-num">08</span>PVC Laminated Louvers<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/wpvc-louvers-panels.html"><span class="dd-num">09</span>WPVC Louvers Panels<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/uv-marble-sheet.html"><span class="dd-num">10</span>UV Marble Sheet<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/cls-pvc-panels.html"><span class="dd-num">11</span>CLS PVC Panels<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/designer-pvc-panels.html"><span class="dd-num">12</span>PVC Soffit Panels - Flexo<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/charcoal-panels.html"><span class="dd-num">13</span>Charcoal Panels<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/ulh-trim-panel-cornish.html"><span class="dd-num">14</span>U.L.H Trim + Cornish Panels<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/u-groove.html"><span class="dd-num">15</span>U. Groove<span class="dd-arrow">&#8250;</span></a>
+            <a href="services/lam-board.html"><span class="dd-num">16</span>Lam Board<span class="dd-arrow">&#8250;</span></a>
+          </div>
+          <a href="products.html" class="dropdown-footer"><i class="fa-solid fa-grip"></i> View All Products &nbsp;&#8250;</a>
+        </div>
+      </div>
+      <a href="gallery.html" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/products.png" alt="Gallery"></span>
+        <span class="nav-label">Gallery</span>
+      </a>
+      <a href="contact.html" class="nav-item">
+        <span class="nav-icon"><img src="assets/radha imag/contact.png" alt="Contact"></span>
+        <span class="nav-label">Contact</span>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+
+  <section class="svc-hero"
+    style="background-image: url('assets/radha imag/service/1.jpeg'); background-size: cover; background-position: center; min-height: 40vh; display: flex; align-items: center; justify-content: center;">
+    <div class="svc-hero__inner" style="padding: 0; width: 100%; text-align: center;">
+      <h1 class="svc-hero__title" style="margin: 0 auto;">About Us</h1>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="s-about">
+
+    <!-- Ambient floating particles -->
+    <div class="about-particles" id="aboutParticles" aria-hidden="true"></div>
+
+    <!-- Mouse spotlight -->
+    <div class="about-spotlight" id="aboutSpotlight" aria-hidden="true"></div>
+
+    <!-- Main two-column layout -->
+    <div class="about-main">
+
+      <!-- LEFT: diagonal-clipped image -->
+      <div class="about-img-wrap" id="aboutImgWrap">
+        <div class="about-img-clip" id="aboutImgClip">
+          <img src="assets/radha imag/about.png" alt="Radha Decors â€” Luxury Interior Craftsmanship"
+            class="about-img" id="aboutImg" />
+          <!-- luxury light-sweep overlay -->
+          <div class="about-img-sweep" id="aboutImgSweep"></div>
+        </div>
+        <!-- SVG gold border exactly tracing the clip shape -->
+        <svg class="about-shape-border" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="gBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f5e49a" />
+              <stop offset="40%" stop-color="#c9a227" />
+              <stop offset="70%" stop-color="#e6c869" />
+              <stop offset="100%" stop-color="#c9a227" />
+            </linearGradient>
+          </defs>
+          <polygon points="0.6,0.6 84,0.6 99.4,99.4 0.6,99.4" fill="none" stroke="url(#gBorderGrad)"
+            stroke-width="0.65" />
+        </svg>
+        <!-- Decorative gold corner accents -->
+        <span class="about-corner about-corner--tl"></span>
+        <span class="about-corner about-corner--br"></span>
+      </div>
+
+      <!-- RIGHT: content -->
+      <div class="about-content-col">
+
+        <!-- Eyebrow -->
+        <div class="about-eyebrow" id="aboutEyebrow">
+          <span class="about-eyebrow__line"></span>
+          <span class="about-eyebrow__text">ABOUT</span>
+          <span class="about-eyebrow__line"></span>
+        </div>
+
+        <h2 class="about-brand" id="aboutBrand">RADHA DECORS</h2>
+        <p class="about-tagline" id="aboutTagline">Crafting Luxury, Defining Spaces</p>
+        <p class="about-body" id="aboutBody">At Radha Decors, we believe every space has the potential to be
+          extraordinary. With a passion for craftsmanship and an eye for perfection, we specialize in premium POP &amp;
+          gypsum ceilings, decorative mouldings, arches, columns, and custom interior solutions.</p>
+
+        <!-- 4 Feature cards in 2Ã—2 grid -->
+        <div class="about-feats" id="aboutFeats">
+
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="21" cy="21" r="15" />
+                <path d="M21 9 l2 6.5 6.5-1.5-4 5 4 4.5-6.5-1.5L21 28l-2-5.5-6.5 1.5 4-4.5-4-5 6.5 1.5Z" />
+              </svg>
+            </div>
+            <h4>EXPERT CRAFTSMANSHIP</h4>
+            <p>Skilled artisans with years of experience in creating timeless masterpieces.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="21,5 36,16 21,37 6,16" />
+                <line x1="6" y1="16" x2="36" y2="16" />
+                <line x1="13.5" y1="5" x2="6" y2="16" />
+                <line x1="28.5" y1="5" x2="36" y2="16" />
+                <line x1="13.5" y1="5" x2="21" y2="16" />
+                <line x1="28.5" y1="5" x2="21" y2="16" />
+              </svg>
+            </div>
+            <h4>PREMIUM QUALITY</h4>
+            <p>We use the finest materials to ensure durability, elegance and perfection.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="21" cy="21" r="14" />
+                <circle cx="21" cy="21" r="3" />
+                <line x1="21" y1="7" x2="21" y2="18" />
+                <line x1="21" y1="24" x2="21" y2="35" />
+                <line x1="7" y1="21" x2="18" y2="21" />
+                <line x1="24" y1="21" x2="35" y2="21" />
+              </svg>
+            </div>
+            <h4>CUSTOM DESIGNS</h4>
+            <p>Tailored designs that reflect your personality and elevate your space.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon">
+              <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M7 20 L21 8 L35 20" />
+                <rect x="13" y="21" width="16" height="14" rx="1" />
+                <path d="M15.5 29 L19.5 33 L26.5 25" />
+              </svg>
+            </div>
+            <h4>COMPLETE SOLUTIONS</h4>
+            <p>From concept to completion, we deliver end-to-end interior solutions.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM: dark luxury specialties bar -->
+    <!-- <div class="about-specs" id="aboutSpecs">
+
+      <div class="about-specs__head">
+        <span class="about-specs__hline"></span>
+        <span class="about-specs__htitle">OUR SPECIALTIES</span>
+        <span class="about-specs__hline"></span>
+      </div>
+
+      <div class="about-specs__grid">
+
+        <div class="spec-item">
+          <div class="spec-icon">
+            <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <rect x="5" y="8" width="32" height="4" rx="1.5" />
+              <rect x="10" y="15" width="22" height="3" rx="1" />
+              <rect x="15" y="21" width="12" height="3" rx="1" />
+              <rect x="18" y="27" width="6" height="7" rx="1" />
+            </svg>
+          </div>
+          <span>POP &amp; GYPSUM<br>CEILINGS</span>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon">
+            <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <circle cx="21" cy="21" r="14" />
+              <circle cx="21" cy="21" r="8" />
+              <circle cx="21" cy="21" r="3" />
+              <line x1="21" y1="7" x2="21" y2="13" />
+              <line x1="21" y1="29" x2="21" y2="35" />
+              <line x1="7" y1="21" x2="13" y2="21" />
+              <line x1="29" y1="21" x2="35" y2="21" />
+            </svg>
+          </div>
+          <span>CEILING<br>MEDALLIONS</span>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon">
+            <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <path d="M7 34 Q7 18 21 11 Q35 18 35 34" />
+              <path d="M12 34 Q12 21 21 15 Q30 21 30 34" />
+              <line x1="7" y1="34" x2="35" y2="34" />
+            </svg>
+          </div>
+          <span>DECORATIVE<br>MOULDINGS</span>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon">
+            <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <rect x="12" y="8" width="7" height="27" rx="1" />
+              <rect x="23" y="8" width="7" height="27" rx="1" />
+              <rect x="10" y="8" width="11" height="3" rx="1" />
+              <rect x="21" y="8" width="11" height="3" rx="1" />
+              <rect x="10" y="32" width="11" height="3" rx="1" />
+              <rect x="21" y="32" width="11" height="3" rx="1" />
+            </svg>
+          </div>
+          <span>COLUMNS &amp;<br>PILLARS</span>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon">
+            <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <path d="M6 34 Q6 15 21 8 Q36 15 36 34" />
+              <line x1="6" y1="34" x2="36" y2="34" />
+              <line x1="6" y1="27" x2="13" y2="27" />
+              <line x1="29" y1="27" x2="36" y2="27" />
+            </svg>
+          </div>
+          <span>ARCHES &amp;<br>ENTRANCES</span>
+        </div>
+
+        <div class="spec-item">
+          <div class="spec-icon">
+            <svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+              <rect x="5" y="5" width="32" height="32" rx="1.5" />
+              <rect x="11" y="11" width="20" height="20" rx="1" />
+              <line x1="5" y1="5" x2="11" y2="11" />
+              <line x1="37" y1="5" x2="31" y2="11" />
+              <line x1="5" y1="37" x2="11" y2="31" />
+              <line x1="37" y1="37" x2="31" y2="31" />
+            </svg>
+          </div>
+          <span>WALL PANELS<br>&amp; FRAMES</span>
+        </div>
+
+      </div>
+
+      <div class="about-specs__quote" id="aboutSpecsQuote">
+        <svg class="specs-qmark" viewBox="0 0 44 36" aria-hidden="true">
+          <path d="M18 0 Q9 5 9 15 L9 36 L0 36 L0 18 Q0 2 16 0 Z
+                   M42 0 Q33 5 33 15 L33 36 L24 36 L24 18 Q24 2 40 0 Z" fill="currentColor" />
+        </svg>
+        <p>Creating Elegant Spaces, One Design at a Time.</p>
+      </div>
+
+    </div> -->
+  </section>
+
+
+  <!-- ===== VISION & MISSION ===== -->
+  <section class="vm-section">
+    <div class="vm-container">
+      <div class="vm-card vm-vision">
+        <div class="vm-icon"><i class="fa-solid fa-eye"></i></div>
+        <h3>Our Vision</h3>
+        <p>To be the most trusted and innovative interior decor brand in South India â€” creating spaces that inspire, elevate everyday living, and stand the test of time through unmatched craftsmanship and premium materials.</p>
+      </div>
+      <div class="vm-divider"></div>
+      <div class="vm-card vm-mission">
+        <div class="vm-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>Our Mission</h3>
+        <p>To deliver world-class interior solutions â€” from gypsum ceilings to premium wall panels â€” with precision, integrity, and a deep commitment to customer satisfaction. We transform ordinary spaces into extraordinary experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section">
+    <div class="testimonials-header">
+      <div class="about-eyebrow">
+        <span class="about-eyebrow__line"></span>
+        <span class="about-eyebrow__text">CLIENT LOVE</span>
+        <span class="about-eyebrow__line"></span>
+      </div>
+      <h2 class="srv-title">TESTIMONIALS</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">&ldquo;Radha Decors transformed our living room completely. The gypsum ceiling work is flawless and the attention to detail is outstanding. Highly recommended!&rdquo;</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <strong>Rajesh Kumar</strong>
+            <span>Puducherry</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">&ldquo;The PVC fluted panels they installed in our office look absolutely premium. Professional team, on-time delivery, and beautiful finish. Very satisfied!&rdquo;</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <strong>Priya Suresh</strong>
+            <span>Puducherry</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">&ldquo;Excellent quality UV marble sheets and wonderful installation. The team was professional and completed the work ahead of schedule. Will definitely hire again!&rdquo;</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <strong>Mohammed Farhan</strong>
+            <span>Puducherry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3 class="footer-brand">Radha Decors</h3>
+        <p class="footer-desc">Radha Decors is a luxury hotel in the heart of Puducherry, offering elegant stays, modern
+          comfort, and warm hospitality.</p>
+        
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Contact Info</h4>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i>No.: 3,4 & 5. ECR Main Road, Near Kandhan Mandapam, Lawspet,
+            Puducherry - 605 008.</li>
+          <li><i class="fa-solid fa-phone"></i>9600200113, 9600731144</li>
+          <li><i class="fa-solid fa-envelope"></i>gypwayclassic@gmail.com</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Follow Us</h4>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <!-- <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 Radha Decors &mdash;
+        <i class="fa-solid fa-heart" style="color:var(--gold);"></i>
+        <a href="https://www.getitmediasolutions.com/" target="_blank"
+          style="color:var(--gold); font-weight:bold; text-decoration:none;">
+          GETIT MEDIA SOLUTIONS
+        </a>
+        <i class="fa-solid fa-heart" style="color:var(--gold);"></i>
+        . All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+<!-- Click-to-zoom lightbox (used by Gallery carousel) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close zoomed image">&times;</button>
+    <img src="" alt="" class="lightbox__img" id="lightboxImg">
+  </div>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
